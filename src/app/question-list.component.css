@@ -1,0 +1,78 @@
+.app {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.app .header-wrapper {
+  margin-bottom: 3rem;
+}
+
+.app .questions-wrapper {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.app .button-wrapper {
+  text-align: center;
+}
+
+.app .questions-wrapper .choice-list {
+  display: flex;
+  flex-direction: column;
+  row-gap: 5px;
+  margin-top: 1rem;
+}
+
+.questions-wrapper .choice-list .choice-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.questions-wrapper .choice-list .choice-item label {
+  order: 2;
+}
+
+@media (min-width: 768px) {
+  .app {
+    max-width: 1300px;
+  }
+
+  .app .questions-wrapper .choice-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    row-gap: 35px;
+  }
+
+  .app .questions-wrapper .choice-list .choice-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.app .submit {
+  margin: 2rem 2rem;
+  border-radius: 1rem;
+  padding: 12px;
+  border-style: none;
+}
+
+.app .submit:hover {
+  background-color: magenta;
+}
+
+.app .user-results {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 2rem;
+}
+
+.app .user-results .user-score {
+  display: flex;
+  flex-direction: column;
+}

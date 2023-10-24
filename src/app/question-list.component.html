@@ -1,0 +1,81 @@
+<div class="app">
+  <header>
+    <div class="header-wrapper">
+      <h1>Monotropism Questionaire</h1>
+
+      <p>
+        This is my Angular version of:
+        <a href="https://dlcincluded.github.io/MQ/"
+          >https://dlcincluded.github.io/MQ/</a
+        >
+      </p>
+      <p>
+        Questions taken directly from:
+        <a href="https://osf.io/4wru2">https://osf.io/4wru2 </a>and scored based
+        on their findings. Original License info: This questionnaire is
+        published under a Creative Commons license, CC-BY-NC-SA. Full text for
+        this license can be found on the Creative Commons website
+        <a href="https://creativecommons.org/licenses/by-nc-sa/2.0/">here.</a>
+      </p>
+    </div>
+  </header>
+  <form [formGroup]="form">
+    <div class="questions-wrapper" formArrayName="questions">
+      <div
+        *ngFor="let question of questionsArray.controls; let i = index"
+        [formGroupName]="i"
+      >
+        <label
+          >{{ questionsArray.value[i].questionId }}.
+          {{ questionsArray.value[i].description }}</label
+        >
+        <div class="choice-list">
+          <div class="choice-item">
+            <label>N/A </label>
+            <input type="radio" formControlName="response" value="0" />
+          </div>
+          <div class="choice-item">
+            <label>Strongly Disagree</label>
+            <input type="radio" formControlName="response" value="1" />
+          </div>
+          <div class="choice-item">
+            <label> Disagree </label>
+            <input type="radio" formControlName="response" value="2" />
+          </div>
+          <div class="choice-item">
+            <label> Neither Agree or Disagree </label>
+            <input type="radio" formControlName="response" value="3" />
+          </div>
+          <div class="choice-item">
+            <label> Agree </label>
+            <input type="radio" formControlName="response" value="4" />
+          </div>
+          <div class="choice-item">
+            <label> Strongly Agree </label>
+            <input type="radio" formControlName="response" value="5" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="button-wrapper">
+      <button class="submit" (click)="onSubmit()">Submit</button>
+    </div>
+    <div *ngIf="isSubmitted" class="user-results">
+      <p>
+        As a reminder this is an assessment for
+        <a href="https://monotropism.org/" title="go to monotropism.org"
+          >Monotropism</a
+        >, a trait sometimes associated with Autism, not Autism directly. If you
+        score high, please be sure to do further research into Monotropism, more
+        information can be found at:
+        <a href="https://monotropism.org/" title="go to monotropism.org"
+          >https://monotropism.org/</a
+        >
+      </p>
+      <div class="user-score">
+        <span>Monotropism Score: {{ score }} / 235</span>
+        <span>Your Average: {{ average | number : "1.2-2" }}</span>
+      </div>
+    </div>
+  </form>
+</div>
