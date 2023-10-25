@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -12,7 +12,7 @@ import { QuestionsService } from './questions.service';
   templateUrl: './question-list.component.html',
   styleUrls: ['./question-list.component.css'],
 })
-export class QuestionListComponent {
+export class QuestionListComponent implements OnInit {
   form!: FormGroup;
   isSubmitted: boolean = false;
   average: number = 0;
